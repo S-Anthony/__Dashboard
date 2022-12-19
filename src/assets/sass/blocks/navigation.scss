@@ -1,0 +1,56 @@
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	width: 14.9rem;
+	height: 2.25rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	&__prev, &__next {
+		width: 17%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 0.0625rem solid transparent;
+		border-radius: 0.75rem;
+		cursor: pointer;
+		transition: all .1s ease;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		svg {
+			height: 40%;
+			width: 40%;
+		}
+		&.disabled {
+			box-shadow: none;
+			border-color: rgb(149, 151, 153);
+			background-color: transparent;
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+}
+
+@media (max-width: 37.5em) { //600px 
+	.navigation {
+		position: static;
+		margin-top: 2.2rem;
+	}
+}
+html.dark .navigation {
+	&__prev, &__next {
+		background: rgba(255, 255, 255, 0.18);
+		&:active {
+			box-shadow:rgb(39, 39, 39) 0px 0px 6px 3px;
+		}
+	}
+}
+html.light .navigation {
+	&__prev, &__next {
+		background: rgba(162, 163, 164, 1);
+		&:active {
+			box-shadow:rgb(158, 158, 158) 0px 0px 6px 3px;
+		}
+	}
+}

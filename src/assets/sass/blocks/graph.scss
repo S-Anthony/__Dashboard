@@ -1,0 +1,82 @@
+.graph {
+	width: 45%;
+	&__title {
+		display: flex;
+		align-items: center;
+		&-logo {
+			flex-shrink: 0;
+			border-radius: 100%;
+			background: rgba(13, 220, 133, 0.12);
+			width: 2.5625rem;
+			height: 2.5625rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&-image {
+				width: 32%;
+				height: 32%;
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				span {
+					background-color: #0DDB84;
+					width: 23%;
+					height: 50%;
+					&:nth-child(2) {
+						height: 70%;
+					}
+					&:nth-child(3) {
+						height: 100%;
+					}
+				}
+			}
+		}
+		&-name {
+			margin-left: 1rem;
+			font-weight: 500;
+			font-size: 0.875rem;
+			color: #A9A9A9;
+		}
+	}
+	&__value {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		margin: 1rem auto 0 auto;
+		p {
+			font-family: Saira;
+			color: #34D178;
+			font-size: 1.5rem;
+		}
+		span {
+			font-family: Saira;
+			font-size: 0.75rem;
+			color: #fff;
+			margin-left: 0.5rem;
+		}
+	}
+	&__visual {
+		height: 5rem;
+		width: 100%;
+		margin-top: 1rem;
+	}
+	&_spendings {
+		.graph {
+			&__title {
+				&-logo {
+					background: rgba(255, 0, 0, 0.12);
+					&-image {
+						span {
+							background-color: #FF0000;
+						}
+					}
+				}
+			}
+			&__value {
+				p {
+					color: #FF0000;
+				}
+			}
+		}
+	}
+}

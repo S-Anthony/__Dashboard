@@ -1,0 +1,112 @@
+.button {
+	width: 100%;
+	height: 3.125rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-family: Saira;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	&_bid {
+		margin-top: 1.3125rem;
+		font-weight: 500;
+		border: none;
+		height: 2.5rem;
+		position: relative;
+		&::before {
+			content: '';
+			z-index: -1;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient(65.58deg, rgba(0, 66, 255, 0.5) -11.84%, rgba(235, 0, 27, 0.5) 98.75%);
+			filter: blur(20px);
+			opacity: 0;
+		}
+		&:active {
+			&::before {
+				opacity: 0.8;
+			}
+		}
+	}
+	&_glow {
+		overflow: hidden;
+		position: relative;
+		&::before {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			content: '';
+			z-index: 2;
+			backdrop-filter: blur(25px);
+		}
+	}
+	&__text {
+		position: relative;
+		z-index: 5;
+	}
+	&__glow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		border-radius: 0 50%;
+	}
+	&__glow-color {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: linear-gradient(65.58deg,rgba(235,0,27,1) -11.84%,rgba(0,66,255,1) 98.75%);
+	}
+}
+
+@media (hover) , (min-width:0\0) , (min--moz-device-pixel-ratio:0){
+	.button {
+		&_bid {
+			&:hover {
+				animation: ease 2s button-bid-gradient ;
+			}
+		}
+	}
+}
+html.dark .button {
+	background: rgba(255, 255, 255, 0.75);
+	color: #000;
+	&_bid {
+		color: #fff;
+		background: linear-gradient(65.58deg, rgba(0, 66, 255, 0.5) -11.84%, rgba(235, 0, 27, 0.5) 98.75%);
+	}
+	&_outline {
+		border: 0.0625rem solid #fff;
+		color: #fff;
+		background-color: transparent;
+	}
+	&_glow {
+		&:active {
+			box-shadow:rgb(212, 212, 212) 0px 0px 3px 1px;
+		}
+	}
+}
+html.light .button {
+	background: rgba(#131313, 1);
+	color: #fff;
+	&_bid {
+		background: linear-gradient(65.58deg, rgba(0, 66, 255, 0.8) -11.84%, rgba(235, 0, 27, 0.8) 98.75%);
+	}
+	&_outline {
+		border: 0.0625rem solid #131313;
+		color: #131313;
+		background-color: transparent;
+	}
+	&_glow {
+		&:active {
+			box-shadow:#131313 0px 0px 3px 1px;
+		}
+	}
+}

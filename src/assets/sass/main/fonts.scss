@@ -1,0 +1,24 @@
+@font-face {
+	font-family: Saira;
+	src: 
+		local("Saira"),
+		url('../fonts/Saira-SemiBold.ttf') format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: Quicksand;
+	src: 
+		local("Quicksand"),
+		url('../fonts/Quicksand-Regular.ttf') format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: Quicksand;
+	src: 
+		local("Quicksand"),
+		url('../fonts/Quicksand-Bold.ttf') format("truetype");
+	font-weight: 600;
+	font-display: swap;
+}

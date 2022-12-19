@@ -1,0 +1,10 @@
+.main {
+	width: 100%;
+	display: flex;
+}
+
+@media (max-width: 85em) { //1360px 
+	.main {
+		flex-direction: column;
+	}
+}

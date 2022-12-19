@@ -1,0 +1,85 @@
+.header {
+	height: 5.9375rem;
+	border-bottom: 0.08125rem solid #2C2D33;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 2.6% 0 2.3%;
+	overflow: hidden;
+	&__logo {
+		width: 2.75rem;
+		height: 2.75rem;
+		background: #fff;
+		border-radius: 0.8125rem;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		svg {
+			width: 70%;
+			max-height: 100%;
+		}
+	}
+}
+
+@media (max-width: 37.5em) { //600px 
+	.header {
+		height: 5rem;
+		&__logo {
+			display: flex;
+		}
+	}	
+}
+
+html.dark .menu {
+	background-color: #131313;
+	&__button {
+		color: #fff;
+		p {
+			font-weight: 500;
+		}
+		&.active {
+			color: #fff;
+			background: linear-gradient(65.58deg,rgba(0,66,255,.5) -11.84%,rgba(235,0,27,.5) 98.75%);
+		}
+		&-checkbox{
+			&::after {
+				left: 60%;
+			}
+			background: #6e6bff;
+		}
+	}
+	&__accordion {
+		color: #fff;
+		&-trigger {
+			&-plus {
+				background: #3f444e;
+				border: 1px solid #3f444e;
+			}
+		}
+		p {
+			font-weight: 500;
+		}
+		&-button {
+			color: #fff;
+		}
+	}
+	&__header-logo {
+		border: 2px solid #fff;
+	}
+}
+html.dark .header {
+	background-color: #131313;
+	&__logo {
+		border: 2px solid #fff;
+	}
+}
+html.light .header {
+	background-color: #fff;
+	&__logo {
+		border: 2px solid #131313;
+	}
+}

@@ -1,0 +1,34 @@
+@import './main/normalize.scss';
+@import './main/fonts.scss';
+@import './main/variables.scss';
+@import './main/animation.scss';
+@import './libs/swiper-bundle.scss';
+* {
+	font-family: Quicksand;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+h1 {
+	padding: 0;
+	margin: 0;
+}
+
+@import './blocks/page.scss';
+@import './blocks/burger-button.scss';
+@import './blocks/main.scss';
+@import './blocks/menu.scss';
+@import './blocks/header.scss';
+@import './blocks/search.scss';
+@import './blocks/management.scss';
+@import './blocks/gallery.scss';
+@import './blocks/info.scss';
+@import './blocks/title.scss';
+@import './blocks/auction.scss';
+@import './blocks/buttons.scss';
+@import './blocks/slides.scss';
+@import './blocks/navigation.scss';
+@import './blocks/dropdown.scss';
+@import './blocks/wallet.scss';
+@import './blocks/transactions.scss';
+@import './blocks/graph.scss';

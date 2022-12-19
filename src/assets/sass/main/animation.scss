@@ -1,0 +1,79 @@
+@keyframes top {
+	0% {
+		top: 0;
+		transform: rotate(0);
+	}
+	50% {
+		transform: rotate(0);
+	}
+	100% {
+		top: 47.5%;
+		transform: rotate(45deg);
+	}
+}
+
+@keyframes top-backwards {
+	0% {
+		top: 47.5%;
+		transform: rotate(45deg);
+	}
+	50% {
+		top: 47.5%;
+	}
+	100% {
+		top: 0;
+		transform: rotate(0);
+	}
+}
+
+@keyframes bottom {
+	0% {
+		bottom: 0;
+		transform: rotate(0);
+	}
+	50% {
+		transform: rotate(0);
+	}
+	100% {
+		bottom: 47.5%;
+		transform: rotate(-45deg);
+	}
+}
+
+@keyframes bottom-backwards {
+	0% {
+		bottom: 47.5%;
+		transform: rotate(-45deg);
+	}
+	50% {
+		bottom: 47.5%;
+	}
+	100% {
+		bottom: 0;
+		transform: rotate(0);
+	}
+}
+
+@keyframes scale {
+	0% {
+		transform: scaleX(1);
+	}
+	50% {
+		transform: scaleX(0);
+	}
+	100% {
+		transform: scaleX(0);
+	}
+}
+
+@keyframes scale-backwards {
+	0% {
+		transform: scaleX(0);
+	}
+	50% {
+		transform: scaleX(0);
+	}
+	100% {
+		transform: scaleX(1);
+	}
+}

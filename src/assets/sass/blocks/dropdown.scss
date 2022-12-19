@@ -1,0 +1,118 @@
+.dropdown {
+	position: relative;
+	border-radius: 0.5rem;
+	width: 59%;
+	height: 100%;
+	color: #fff;
+	font-family: Saira;
+	font-weight: 700;
+	font-size: 0.8125rem;
+	padding: 0.46875rem 2.375rem 0.46875rem 1.4375rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	z-index: 5;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	&_wallet {
+		height: 1.625rem;
+		width: 80%;
+		margin: 2.2rem auto 0 auto;
+		.dropdown {
+			&__selected, &__options-option {
+				display: flex;
+				align-items: center;
+				p {
+					margin-left: 1rem;
+				}
+				svg {
+					width: 1.625rem;
+					height: 1.625rem;
+				}
+			}
+		}
+	}
+	&__arrow {
+		width: 0.8rem;
+		max-height: 1.375rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 1.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		svg {
+			width: 100%;
+		}
+	}
+	&__options {
+		top: 110%;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		padding: 0 1.4375rem;
+		background: rgba(28, 29, 29, 0.9);
+		transition: all .2s;
+		pointer-events: none;
+		opacity: 0;
+		visibility: 0;
+		&-option {
+			list-style-type: none;
+			width: 100%;
+			height: 100%;
+			padding: 0.7rem 0;
+			border-bottom: .03rem solid #ffffff4a;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+	&.opened {
+		.dropdown{
+			&__arrow {
+				transform: translateY(-50%) rotate(180deg);
+			}
+			&__options {
+				opacity: 1;
+				visibility: 1;
+				height: fit-content;
+				pointer-events: all;
+			}
+		}
+	}
+}
+html.dark .dropdown {
+	background: rgba(162, 163, 164, 0.18);
+	&_navigation {
+		&:active {
+			box-shadow:rgb(39, 39, 39) 0px 0px 6px 3px;
+		}
+	}
+	&_wallet {
+		background: transparent;
+	}
+}
+html.light .dropdown {
+	background: rgba(162, 163, 164, 1);
+	&_navigation {
+		&:active {
+			box-shadow:rgb(158, 158, 158) 0px 0px 6px 3px;
+		}
+	}
+	&_wallet {
+		background: transparent;
+		.dropdown {
+			&__selected {
+				color: #131313;
+			}
+			&__arrow {
+				svg, path {
+					fill: #131313;
+				}
+			}
+		}
+	}
+}

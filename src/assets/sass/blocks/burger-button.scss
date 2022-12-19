@@ -1,0 +1,63 @@
+.burger-button {
+	height: 1.2rem;
+	width: 1.5rem;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	right: 1.5rem;
+	top: 2.5rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+	display: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	span {
+		width: 1.5rem;
+		height: 5%;
+		position: relative;
+	}
+	&.not-active {
+		span {
+			&:nth-child(1) {
+				animation: ease .5s top-backwards forwards;
+			}
+			&:nth-child(2) {
+				animation: ease .5s scale-backwards forwards;
+			}
+			&:nth-child(3) {
+				animation: ease .5s bottom-backwards forwards;
+			}
+		}
+	}
+	&.active {
+		span {
+			&:nth-child(1) {
+				animation: ease .5s top forwards;
+			}
+			&:nth-child(2) {
+				animation: ease .5s scale forwards;
+			}
+			&:nth-child(3) {
+				animation: ease .5s bottom forwards;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 37.5em) { //600px 
+	.burger-button {
+		z-index: 15;
+		display: flex;
+	}	
+}
+html.dark .burger-button {
+	span {
+		background-color: #fff;
+	}
+}
+html.light .burger-button {
+	span {
+		background-color: #131313;
+	}
+}
