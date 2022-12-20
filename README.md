@@ -1,6 +1,6 @@
 # Dashboard
 [Page design by Nickelfox Design](https://www.figma.com/community/file/1144579894061876005)<br />
-This is adaptive, valid dashboard page markup with slider (via [swiper](https://swiperjs.com)), graphs (via [observable plot](https://observablehq.com/@observablehq/plot)), simple dropdowns and dark/light color schemes. 
+This is adaptive, valid dashboard page markup with slider (via [swiper](https://swiperjs.com)), graphs (via [Chart.js](https://www.chartjs.org/docs/latest/)), simple dropdowns and dark/light color schemes. 
 ## Demo:
 https://s-anthony.github.io/dashboard/
 ## Stack:
@@ -10,7 +10,7 @@ https://s-anthony.github.io/dashboard/
 - JavaScript
 - Sass
 ### Libraries:
-- [Observable Plot](https://observablehq.com/@observablehq/plot)
+- [Chart.js](https://www.chartjs.org/docs/latest/)
 - [Swiper](https://swiperjs.com) 
 ### Additional tools: 
 - Gulp

@@ -7,7 +7,6 @@ export default function menu () {
 	function showMenu(changeOverflow=false) {
 		if (changeOverflow === true) {
 			documentBody.style.overflowY = 'hidden';
-			documentBody.style.marginRight = `${scrollbarWidth}px`;
 		}
 		menu.classList.add('opened');
 		burgerButton.classList.remove('not-active');
@@ -16,7 +15,6 @@ export default function menu () {
 
 	function hideMenu() {
 		documentBody.style.overflowY = 'auto';
-		documentBody.style.marginRight = 0;
 		menu.classList.remove('opened');
 		burgerButton.classList.remove('active');
 		burgerButton.classList.add('not-active');

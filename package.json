@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
-    "@observablehq/plot": "^0.6.0",
     "babel-loader": "^8.2.4",
     "browser-sync": "^2.27.7",
+    "chart.js": "^4.1.1",
     "core-js": "^3.21.1",
     "git": "^0.1.5",
     "gulp-htmlmin": "^5.0.1",

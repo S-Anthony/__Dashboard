@@ -1,80 +1,106 @@
-import * as Plot from "@observablehq/plot";
+import Chart from 'chart.js/auto';
 
 export default function graphs () {
 
-	const earningsGraph = document.querySelector('#graph_earnings'),
+	const earningsGraphContainer = document.querySelector('#graph_earnings'),
 		  earningsTotal = document.querySelector('#graph_earnings_total'),
-		  spendingsGraph = document.querySelector('#graph_spendings'), 
-		  spendingsTotal = document.querySelector('#graph_spendings_total'),
-		  graphHeight = window.getComputedStyle(earningsGraph).height.match(/[\d.]/g).join(''),
-		  graphWidth = window.getComputedStyle(earningsGraph).width.match(/[\d.]/g).join('');
+		  spendingsGraphContainer = document.querySelector('#graph_spendings'), 
+		  spendingsTotal = document.querySelector('#graph_spendings_total');
 
 	const earningsValues = [
-		{date: "09.20.2022", value: 0.108},
-		{date: "09.22.2022", value: 0.802},
-		{date: "09.24.2022", value: 1.001},
-		{date: "09.25.2022", value: 0.603},
-		{date: "09.28.2022", value: 0.209},
-		{date: "10.01.2022", value: 1.210},
-		{date: "10.03.2022", value: 1.501},
-		{date: "10.04.2022", value: 2.050}
+		{date: "2022-09-20", value: 0.108},
+		{date: "2022-09-21", value: null},
+		{date: "2022-09-22", value: 0.802},
+		{date: "2022-09-23", value: null},
+		{date: "2022-09-24", value: 1.001},
+		{date: "2022-09-25", value: 0.603},
+		{date: "2022-09-26", value: null},
+		{date: "2022-09-27", value: null},
+		{date: "2022-09-28", value: 0.209},
+		{date: "2022-09-29", value: null},
+		{date: "2022-09-30", value: null},
+		{date: "2022-10-01", value: 1.210},
+		{date: "2022-10-02", value: null},
+		{date: "2022-10-03", value: 1.501},
+		{date: "2022-10-04", value: 2.050},
 	];
 
 	const spendingsValues = [
-		{date: "09.20.2022", value: 0.031},
-		{date: "09.22.2022", value: 0.229},
-		{date: "09.24.2022", value: 0.286},
-		{date: "09.25.2022", value: 0.172},
-		{date: "09.28.2022", value: 0.060},
-		{date: "10.01.2022", value: 0.346},
-		{date: "10.03.2022", value: 0.429},
-		{date: "10.04.2022", value: 0.586}
+		{date: "2022-09-20", value: 0.031},
+		{date: "2022-09-21", value: null},
+		{date: "2022-09-22", value: 0.229},
+		{date: "2022-09-23", value: null},
+		{date: "2022-09-24", value: 0.286},
+		{date: "2022-09-25", value: 0.172},
+		{date: "2022-09-26", value: null},
+		{date: "2022-09-27", value: null},
+		{date: "2022-09-28", value: 0.060},
+		{date: "2022-09-29", value: null},
+		{date: "2022-09-30", value: null},
+		{date: "2022-10-01", value: 0.346},
+		{date: "2022-10-02", value: null},
+		{date: "2022-10-03", value: 0.429},
+		{date: "2022-10-04", value: 0.586},
 	];
 
-	function formatArrayDates (array) {
-		array.forEach(value => {
-			value.date = new Date( value.date ).getTime();
-		});
+	function showTotal (container, array) {
+		container.textContent = array.reduce((accumulator, current) => {
+			return accumulator + current.value;
+		}, 0).toFixed(3);
 	}
 
-	function filterFirstAndLast (element, index) {
-		if (index !== 0 && index !== earningsValues.length-1) {
-			return element;
-		}
-	}
-
-	function showTotal (parent, array) {
-		let total = 0;
-
-		array.forEach(item => {
-			total+= item.value;
-		});
-		parent.textContent = total.toFixed(3);
-	}
-
-  	function renderGraph(parent, array, color="#fff") {
-		formatArrayDates(array);
-		const plot = Plot.plot({
-			x: {axis: ""},
-			y: {axis: ""},
-			style: {
-				background: "transparent",
-				color: color,
-				overflow: "visible",
-
+  	function renderGraph(container, array, color="#fff") {
+		const scalesOptions = {
+			border: {
+				display: false
 			},
-			height: graphHeight,
-			width: graphWidth,
-			marks: [
-				Plot.line(array, {x: "date", y: "value", strokeWidth: 2, curve: "catmull-rom"}),
-				Plot.dot(array.filter(filterFirstAndLast), {x: "date", y: "value", r:3, fill: "currentColor"}),
-			],
+			grid: {
+				display:false
+			},
+			ticks: {
+				display:false
+			}
+		};
+		
+		new Chart(container, {
+			type: 'line',
+			data: {
+				datasets: [{
+					data: array,
+					spanGaps: true,
+					backgroundColor: color,
+					borderColor: color,
+					tension: .4,
+					label: '',
+					borderWidth: 2,
+					pointBorderWidth: 1,
+				}]
+			},
+			options: {
+				animation: false,
+				maintainAspectRatio: false,
+				parsing: {
+					xAxisKey: 'date',
+					yAxisKey: 'value',
+				},
+				plugins: {
+					legend: {
+						display: false,
+					},
+					tooltip: {
+						enabled: false,
+					},
+				},
+				scales: {
+					x: scalesOptions,
+					y: scalesOptions,
+				},
+			}
 		});
-	parent.append(plot);
-  }
+  	};
 
-  renderGraph(earningsGraph, earningsValues, "#34D178");
-  showTotal(earningsTotal, earningsValues);
-  renderGraph(spendingsGraph, spendingsValues, "#ff0000");
-  showTotal(spendingsTotal, spendingsValues);
+	renderGraph(earningsGraphContainer, earningsValues, "#34D178");
+	renderGraph(spendingsGraphContainer, spendingsValues, "#ff0000");
+	showTotal(earningsTotal, earningsValues);
+	showTotal(spendingsTotal, spendingsValues);
 }
